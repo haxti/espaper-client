@@ -291,6 +291,9 @@ void handleRoot() {
   server.sendContent(FPSTR(HTTP_FORM_START));
   server.sendContent(getFormField("ssid", "WiFi SSID", "32", WIFI_SSID, ""));
   server.sendContent(getFormField("password", "WiFi Password", "63", WIFI_PASS, "type='password'"));
+  server.sendContent("<BR/>Restore config here or leave empty: <BR/>");
+  server.sendContent(getFormField("device_id", "Device ID", "36", DEVICE_ID, ""));
+  server.sendContent(getFormField("device_secret", "Device Secret", "36", DEVICE_SECRET, "type='password'"));
   // 3h = 180min seem to be a save value. Since ESP.deepSleepMax() returns a different value every time validation
   // based on a dynamic value can be very irritating for the user.
   String validationRules = String("type='number' min='1' max='180'");
@@ -365,11 +368,15 @@ void handleSave() {
   Serial.println("Handling 'save' request");
   WIFI_SSID = server.arg("ssid");
   WIFI_PASS = server.arg("password");
+  DEVICE_ID = server.arg("device_id");
+  DEVICE_SECRET = server.arg("device_secret");
   UPDATE_INTERVAL_MINS = server.arg("updateIntervalMins").toInt();
   TIMEZONE = server.arg("timeZone");
   NTP_SERVERS = server.arg("ntpServers");
   Serial.println(WIFI_SSID);
   Serial.println(WIFI_PASS);
+  Serial.println(DEVICE_ID);
+  Serial.println(DEVICE_SECRET);
   Serial.println(UPDATE_INTERVAL_MINS);
   Serial.println(TIMEZONE);
   Serial.println(NTP_SERVERS);
