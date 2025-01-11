@@ -1,5 +1,9 @@
 # ThingPulse ESPaper client
 
+
+> [!IMPORTANT]  
+> This is a fork with some unofficial fixes. The parent repo is apperantly no longer maintained and the lastest release is broken because of an expired certificate (see PR#51)
+
 How about *designing* your [ESPaper](https://thingpulse.com/product-category/espaper-epaper-kits/) content rather than programming it? You can fully customize the content to display. And load content from remote resources (calendars etc.). And much more. All with the help of [https://www.espaper.com](https://www.espaper.com).
 
 No Arduino programming required anymore!
