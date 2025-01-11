@@ -22,7 +22,7 @@ for key in my_flags['CPPDEFINES']:
         print("Building client version {}.".format(CLIENT_VERSION))
 
 # get environment vars for built target
-PROJECTBUILD_DIR = env["PROJECTBUILD_DIR"]
+PROJECTBUILD_DIR = env["PROJECT_BUILD_DIR"]
 PIOENV = env["PIOENV"]
 PROGNAME = env["PROGNAME"]
 TARGET_DIR = "target"
